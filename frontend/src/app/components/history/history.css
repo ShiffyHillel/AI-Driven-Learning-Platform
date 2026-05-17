@@ -1,0 +1,30 @@
+.history-container {
+  max-width: 700px;
+  margin: 40px auto;
+}
+
+.history-card {
+  margin-bottom: 24px;
+  padding: 16px;
+}
+
+.empty-card {
+  text-align: center;
+  padding: 40px;
+}
+
+.response-text {
+  margin-top: 16px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.error {
+  color: red;
+}

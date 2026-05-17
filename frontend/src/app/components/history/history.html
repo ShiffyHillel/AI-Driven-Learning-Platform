@@ -1,0 +1,38 @@
+<div class="history-container">
+  <h2>Your Learning History 📖</h2>
+
+  @if (isLoading) {
+    <div class="spinner-container">
+      <mat-spinner></mat-spinner>
+    </div>
+  }
+
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+
+  @if (!isLoading && prompts.length === 0) {
+    <mat-card class="empty-card">
+      <mat-card-content>
+        <p>No lessons yet! Start learning 🚀</p>
+        <button mat-raised-button color="primary" (click)="learnMore()">
+          Start Learning
+        </button>
+      </mat-card-content>
+    </mat-card>
+  }
+
+  @for (prompt of prompts; track prompt.id) {
+    <mat-card class="history-card">
+      <mat-card-header>
+        <mat-card-title>{{ prompt.prompt }}</mat-card-title>
+        <mat-card-subtitle>{{ prompt.createdAt | date:'medium' }}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <mat-divider></mat-divider>
+        <p class="response-text">{{ prompt.response }}</p>
+      </mat-card-content>
+    </mat-card>
+  }
+</div>
