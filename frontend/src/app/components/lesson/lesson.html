@@ -1,0 +1,31 @@
+@if (lesson) {
+  <mat-card class="lesson-card">
+    <mat-card-header>
+      <mat-card-title>Your Lesson 🎓</mat-card-title>
+      <mat-card-subtitle>{{ lesson.createdAt | date:'medium' }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="prompt-box">
+        <p class="label">Your question:</p>
+        <p class="prompt-text">{{ lesson.prompt }}</p>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <div class="response-box">
+        <p class="label">AI Response:</p>
+        <p class="response-text">{{ lesson.response }}</p>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="learnMore()">
+        Learn More 📚
+      </button>
+      <button mat-button (click)="goToHistory()">
+        View History
+      </button>
+    </mat-card-actions>
+  </mat-card>
+}
