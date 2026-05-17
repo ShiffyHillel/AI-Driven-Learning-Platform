@@ -1,0 +1,47 @@
+<mat-card class="learn-card">
+  <mat-card-header>
+    <mat-card-title>What do you want to learn? 📚</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="selectedCategory" (ngModelChange)="onCategoryChange()">
+        @for (category of categories; track category.id) {
+          <mat-option [value]="category.id">{{ category.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    @if (subCategories.length > 0) {
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Sub-Category</mat-label>
+        <mat-select [(ngModel)]="selectedSubCategory">
+          @for (sub of subCategories; track sub.id) {
+            <mat-option [value]="sub.id">{{ sub.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    }
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>What do you want to know?</mat-label>
+      <textarea matInput [(ngModel)]="prompt" rows="4" 
+        placeholder="e.g. Teach me about black holes"></textarea>
+    </mat-form-field>
+
+    @if (errorMessage) {
+      <p class="error">{{ errorMessage }}</p>
+    }
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="sendPrompt()" [disabled]="isLoading">
+      @if (isLoading) {
+        Generating lesson...
+      } @else {
+        Get My Lesson 🚀
+      }
+    </button>
+  </mat-card-actions>
+</mat-card>
