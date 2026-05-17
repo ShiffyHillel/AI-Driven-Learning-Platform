@@ -15,8 +15,9 @@
       <input matInput [(ngModel)]="phone" placeholder="0501234567">
     </mat-form-field>
 
-    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
-  </mat-card-content>
+@if (errorMessage) {
+  <p class="error">{{ errorMessage }}</p>
+}  </mat-card-content>
 
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="register()">
