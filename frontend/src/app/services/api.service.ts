@@ -76,4 +76,15 @@ export class ApiService {
       { headers: this.getHeaders(userId) }
     );
   }
+  getAllUsers(): Observable<User[]> {
+  return this.http.get<User[]>(`${BASE_URL}/users`,
+    { headers: this.getHeaders('admin') }
+  );
+}
+
+getAllPrompts(): Observable<Prompt[]> {
+  return this.http.get<Prompt[]>(`${BASE_URL}/prompts`,
+    { headers: this.getHeaders('admin') }
+  );
+}
 }

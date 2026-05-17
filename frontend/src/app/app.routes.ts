@@ -2,6 +2,10 @@ import { Routes } from '@angular/router';
 import { SiteComponent } from './components/site/site';
 
 export const routes: Routes = [
+  { 
+    path: 'admin', 
+    loadComponent: () => import('./components/admin/admin').then(m => m.AdminComponent) 
+  },
   {
     path: '',
     component: SiteComponent,
