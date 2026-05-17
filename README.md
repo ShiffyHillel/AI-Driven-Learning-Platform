@@ -104,7 +104,3 @@ Implemented via a clean interface (`AiProvider`) with two implementations (`Open
 - No JWT authentication in this version — can be added as an extension
 
 ---
-
-## Author
-
-Built with love as an assessment project for Practec
