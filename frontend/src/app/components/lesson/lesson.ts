@@ -5,12 +5,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 
 import { Prompt } from '../../services/api.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-lesson',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule, MatDividerModule],
-  templateUrl: './lesson.html',
+imports: [MatCardModule, MatButtonModule, MatDividerModule, DatePipe],  templateUrl: './lesson.html',
   styleUrl: './lesson.css'
 })
 export class LessonComponent implements OnInit {
