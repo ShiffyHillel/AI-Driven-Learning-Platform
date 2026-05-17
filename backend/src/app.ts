@@ -1,5 +1,6 @@
 import express, { Express } from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 
 import DbConn from "./utils/db-conn";
 import UserIdMiddleware from "./utils/user-id-middleware";
@@ -60,6 +61,7 @@ export default class App {
         const promptApi = new PromptApi(promptService);
 
         this.app.use(express.json());
+        this.app.use(cors());
         this.app.use(UserIdMiddleware.validate);
 
         this.app.use("/api/users", userApi.router);
