@@ -19,7 +19,8 @@ export default class UserDal {
             throw new Error(USER_ALREADY_EXISTS_ERROR);
         }
         await this.userCollection.insertOne(user);
-        return user;
+        const { _id, ...userWithoutId } = user as any;
+        return userWithoutId;
     }
 
     async getUserById(id: string): Promise<User> {

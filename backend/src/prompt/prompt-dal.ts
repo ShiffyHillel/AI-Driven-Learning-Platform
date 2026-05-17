@@ -13,8 +13,9 @@ export default class PromptDal {
     }
 
     async createPrompt(prompt: Prompt): Promise<Prompt> {
-        await this.promptCollection.insertOne(prompt);
-        return prompt;
+     await this.promptCollection.insertOne(prompt);
+        const { _id, ...promptWithoutId } = prompt as any;
+        return promptWithoutId;
     }
 
     async getPromptsByUserId(userId: string): Promise<Array<Prompt>> {

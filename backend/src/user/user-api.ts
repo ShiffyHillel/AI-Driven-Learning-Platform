@@ -23,8 +23,16 @@ export default class UserApi {
                 createdAt: new Date()
             };
 
-            const created = await this.userService.createUser(user);
-            res.status(201).send(created);
+           try {
+    const created = await this.userService.createUser(user);
+    res.status(201).send(created);
+} catch (err: any) {
+    if (err.message === "User already exists") {
+        res.status(409).send("User already exists");
+        return;
+    }
+    throw err;
+}
         });
 
         // GET /api/users/:id — קבלת משתמש לפי id
