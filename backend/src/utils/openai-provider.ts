@@ -8,7 +8,7 @@ const client = new OpenAI({
 export default class OpenAiProvider implements AiProvider {
     async generateLesson(topic: string, prompt: string): Promise<string> {
         const response = await client.chat.completions.create({
-            model: "gpt-3.5-turbo",
+            model: "gpt-4.1-nano",
             messages: [
                 {
                     role: "system",
